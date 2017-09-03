@@ -48,19 +48,28 @@ public class Practice1Test {
 		System.out.println("Testing correctness.");
 		try {
 			for (int i = 0; i < types.length; i++) {
+				// Initializing timing variables to gauge performance of Factorial tests
+				long startTime = System.nanoTime();
 				System.out.print("* Factorial " + types[i] + " tests...");
 				if (testFactorial(factory.getFactorial(types[i])))
 					System.out.println(" passed.");
 				else
 					System.out.println(" failed.");
+				long endTime = System.nanoTime();
+				System.out.println("  in " + (endTime - startTime) + " nanoseconds");
+				
 			}
 			for (int i = 0; i < types.length; i++) {
+				// Initializing timing variables to gauge performance of Fibonacci tests
+				long startTime = System.nanoTime();
 				System.out.print("* Fibonacci " + types[i] + " tests...");
 				if (testFibonacci(factory.getFibonacci(types[i])))
 					System.out.println(" passed.");
 				else
 					System.out.println(" failed.");
-			}
+				long endTime = System.nanoTime();
+				System.out.println("  in " + (endTime - startTime) + " nanoseconds");
+			}	
 		}
 		catch (CannotConstructException cce) {
 			System.out.println("Failed to construct the right class.");
